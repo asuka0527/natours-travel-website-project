@@ -1,0 +1,60 @@
+.header {
+  height: 85vh;
+  background-image: linear-gradient(
+      to right,
+      rgba($color-primary-light, 0.804),
+      rgba($color-primary-dark, 0.804)
+    ),
+    url(../img/hero-small.jpg);
+
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  @supports (clip-path: polygon(0 0)) and (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 90%);
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 90%);
+  }
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    background-image: linear-gradient(
+        to right,
+        rgba($color-primary-light, 0.804),
+        rgba($color-primary-dark, 0.804)
+      ),
+      url(../img/hero.jpg);
+  }
+
+  @include respond(tab-land) {
+    padding: 4rem;
+  }
+
+  @include respond(phone) {
+    height: 60vh;
+    padding: 3rem;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%);
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    /* related to parent element */
+    top: 40%;
+    left: 50%;
+    /* related tp element itself */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
